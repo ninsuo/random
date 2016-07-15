@@ -1,6 +1,18 @@
 # random
 A command that filters /dev/urandom with required characters to generate random strings
 
+## Installation
+
+```sh
+git clone https://github.com/ninsuo/random.git
+cd random
+php -r "readfile('https://getcomposer.org/installer');" | php
+php composer.phar update
+ln -s `pwd`/random /usr/local/bin/random
+```
+
+## Usage
+
 ```sh
 Usage:
   random [options] [--] [<size>]
@@ -23,3 +35,28 @@ Options:
 Help:
  Generate random strings
 ```
+
+## Demo
+
+```sh
+# Default: alphabetic, numeric and symbols, 32 bytes
+$ random
+||>rr=llZqq+[T2-aa\]8ee#ll!Dllss
+
+# The only argument taken is the random string size
+$ random 64
+Z,ssP{3=RWGFqq9)hhffH@ppEQ?|+:ww*E^oo$@[0ffCaass:AI.>-XCff)/aazz
+
+# To disable symbols (to get alphanumeric string), use the -s option
+$ random 64 -s
+y2npUoSgBSLJFXhmErj9AgycuP8e0gQQFKOTYUlVHU6JrqD7zy6XilyHZ0HskZip
+
+# To disable digits, use the -i option
+$ random 64 -s -i
+FzTbNwxGTwhroSUrROfgIPENdpxrhkMlCeZtXIdMItLDZypFzIwBebQImLsygKrm
+
+# To disable alphabetic characters, use -a option
+$ random 64 -s -a
+0101947768751888979033495038653685824055996158848049030883823416
+```
+
